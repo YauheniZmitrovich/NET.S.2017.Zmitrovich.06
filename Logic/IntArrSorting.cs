@@ -16,8 +16,10 @@ namespace Logic
         /// </summary>
         public enum OrderBy { Asc, Desc }
 
+        // Maybe it's a bad application of enum, because
+        // we can use new options of comparison in future.
         /// <summary>
-        /// Types of comparison of two int[] arrays.
+        /// Options of comparison of two int[] arrays.
         /// </summary>
         public enum ArrayComparisonBy { SumOfMembers, MaxMember, MinMember }
 

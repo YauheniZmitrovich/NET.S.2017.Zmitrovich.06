@@ -13,7 +13,7 @@ namespace Logic.Tests
     public class IntArrSortingTests
     {
 
-        int[][] jaggedArray = new int[][]
+        private readonly  int[][] _jaggedArray = new int[][]
         {
             new int[] {1,3,5,7,9},
             new int[] {11,22},
@@ -24,7 +24,7 @@ namespace Logic.Tests
         public void BubbleSort_AskSortingBySumOfMembers_ReturnsSortedArray()
         {
             int[][] arr=new int[3][];
-            jaggedArray.CopyTo(arr, 0);
+            _jaggedArray.CopyTo(arr, 0);
             int[][] expectedArray = new int[][]
             {
                 new int[] {0,2,4,6},
@@ -41,7 +41,7 @@ namespace Logic.Tests
         public void BubbleSort_DescSortingByMaxMember_ReturnsSortedArray()
         {
             int[][] arr = new int[3][];
-            jaggedArray.CopyTo(arr, 0);
+            _jaggedArray.CopyTo(arr, 0);
             int[][] expectedArray = new int[][]
             {
                 new int[] {11,22},
@@ -58,7 +58,7 @@ namespace Logic.Tests
         public void BubbleSort_DescSortingByMin_ReturnsSortedArray()
         {
             int[][] arr = new int[3][];
-            jaggedArray.CopyTo(arr, 0);
+            _jaggedArray.CopyTo(arr, 0);
             int[][] expectedArray = new int[][]
             {
                 new int[] {0,2,4,6},
