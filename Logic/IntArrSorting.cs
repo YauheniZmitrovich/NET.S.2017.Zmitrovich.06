@@ -18,6 +18,9 @@ namespace Logic
 
         // Maybe it's a bad application of enum, because
         // we can use new options of comparison in future.
+        // It's contradicts the rule of enum's application, isn't it?
+        // But: enum Color { yellow, black } .
+        // So if we are sure that nothing will change, then we can do so.
         /// <summary>
         /// Options of comparison of two int[] arrays.
         /// </summary>
@@ -65,13 +68,16 @@ namespace Logic
         /// <param name="arr1"> The first array to compare. </param>
         /// <param name="arr2"> The second array to compare. </param>
         /// <param name="arrComparisonBy"> How we compare our arrays. </param>
+        /// <param name="orderBy"></param>
         /// <returns>
         ///  A 32-bit signed integer that indicates relationship between the two
         ///  comparands. Value Condition Less than zero arr1 is less than arr2. Zero arr1 equals
         ///  arr2. Greater than zero arr1 is greater than arr2.
+        /// </returns>
         private static int Compare(int[] arr1, int[] arr2, ArrayComparisonBy arrComparisonBy, OrderBy orderBy)
         {
             int res = 0;
+
             switch (arrComparisonBy)
             {
                 case ArrayComparisonBy.SumOfMembers:
