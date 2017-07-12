@@ -7,7 +7,11 @@ namespace Logic
 
         #region Enums
 
-        //To my mind it's more readable code than a bool flag.
+        //To my mind it's more readable and safe code than a bool flag application.
+        //Memory:
+        //bool(1): 32x - 4 bytes, 64x - 8 bytes
+        //enum(4): 32x - 4 bytes, 64x - 8 bytes
+        //enum SortingOrder:bool(1): 32x - 4 bytes, 64x - 8 bytes
         /// <summary>
         /// Ascending or descending ordering.
         /// </summary>
