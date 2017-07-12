@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logic
 {
@@ -11,20 +7,11 @@ namespace Logic
 
         #region Enums
 
+        //To my mind it's more readable code than a bool flag.
         /// <summary>
         /// Ascending or descending ordering.
         /// </summary>
-        public enum OrderBy { Asc, Desc }
-
-        // Maybe it's a bad application of enum, because
-        // we can use new options of comparison in future.
-        // It's contradicts the rule of enum's application, isn't it?
-        // But: enum Color { yellow, black } .
-        // So if we are sure that nothing will change, then we can do so.
-        /// <summary>
-        /// Options of comparison of two int[] arrays.
-        /// </summary>
-        public enum ArrayComparisonBy { SumOfMembers, MaxMember, MinMember }
+        public enum SortingOrder { Asc, Desc }
 
         #endregion
 
@@ -35,9 +22,11 @@ namespace Logic
         /// Bubble sorting for jagged int[][] array by rows.
         /// </summary>
         /// <param name="arr"> Jagged int[][] array. </param>
-        /// <param name="arrComparisonBy"> Type of comparison two rows. </param>
-        /// <param name="orderBy"> Ascending or descending ordering. </param>
-        public static void BubbleSortByRows(int[][] arr, ArrayComparisonBy arrComparisonBy, OrderBy orderBy)
+        /// <param name="iComparer"> 
+        /// Option of comparison two rows. Implementation of IComparer 
+        /// </param>
+        /// <param name="sortingOrder"> Ascending or descending ordering. </param>
+        public static void BubbleSortByRows(int[][] arr, IComparer iComparer, SortingOrder sortingOrder = SortingOrder.Asc)
         {
             CheckInputArray(arr);
 
@@ -45,7 +34,7 @@ namespace Logic
             {
                 for (int j = 0; j < arr.Length - i - 1; j++)
                 {
-                    if (Compare(arr[j], arr[j + 1], arrComparisonBy, orderBy) > 0)
+                    if (iComparer.Compare(arr[j], arr[j + 1], sortingOrder) > 0)
                     {
                         int[] temp = arr[j];
                         arr[j] = arr[j + 1];
@@ -60,41 +49,6 @@ namespace Logic
 
 
         #region Private
-
-        /// <summary>
-        ///  Compares two int[] arrays  objects and returns an integer that indicates
-        ///  their relative position in the sort order.
-        /// </summary>
-        /// <param name="arr1"> The first array to compare. </param>
-        /// <param name="arr2"> The second array to compare. </param>
-        /// <param name="arrComparisonBy"> How we compare our arrays. </param>
-        /// <param name="orderBy"></param>
-        /// <returns>
-        ///  A 32-bit signed integer that indicates relationship between the two
-        ///  comparands. Value Condition Less than zero arr1 is less than arr2. Zero arr1 equals
-        ///  arr2. Greater than zero arr1 is greater than arr2.
-        /// </returns>
-        private static int Compare(int[] arr1, int[] arr2, ArrayComparisonBy arrComparisonBy, OrderBy orderBy)
-        {
-            int res = 0;
-
-            switch (arrComparisonBy)
-            {
-                case ArrayComparisonBy.SumOfMembers:
-                    res = arr1.Sum() - arr2.Sum();
-                    return (orderBy == OrderBy.Asc) ? res : -res;
-
-                case ArrayComparisonBy.MaxMember:
-                    res = arr1.Max() - arr2.Max();
-                    return (orderBy == OrderBy.Asc) ? res : -res;
-
-                case ArrayComparisonBy.MinMember:
-                    res = arr1.Min() - arr2.Min();
-                    return (orderBy == OrderBy.Asc) ? res : -res;
-            }
-
-            return 0;
-        }
 
         private static void CheckInputArray(int[][] arr)
         {
