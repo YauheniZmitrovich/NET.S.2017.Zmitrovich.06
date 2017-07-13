@@ -12,6 +12,8 @@ namespace Logic.Tests
     [TestFixture]
     public class IntArrSortingTests
     {
+        #region Sorting by rows
+
 
         #region Auxiliary data
 
@@ -27,6 +29,9 @@ namespace Logic.Tests
 
         #region Simple option tests
 
+
+        #region Sorting by sum of members
+
         [Test]
         [Category("Simple option tests")]
         public void BubbleSortByRows_AscSortingBySumOfMembers_ReturnsSortedArray()
@@ -39,7 +44,83 @@ namespace Logic.Tests
                 new int[] {11,22}
             };
 
-            IntArrSorting.BubbleSortByRows(arr, new ComparatorBySum());
+            IntArrSorting.BubbleSortByRows(arr, new AscComparatorBySum());
+
+            Assert.AreEqual(arr, expectedArray);
+        }
+
+        [Test]
+        [Category("Simple option tests")]
+        public void BubbleSortByRows_DescSortingBySumOfMembers_ReturnsSortedArray()
+        {
+            int[][] arr = (int[][])JaggedArray.Clone();
+            int[][] expectedArray = new int[][]
+            {
+                new int[] {11,22},
+                new int[] {1,3,5,7,9},
+                new int[] {0,2,4,6}
+            };
+
+            IntArrSorting.BubbleSortByRows(arr, new DescComparatorBySum());
+
+            Assert.AreEqual(arr, expectedArray);
+        }
+
+        #endregion
+
+        #region Sorting by min member
+
+        [Test]
+        [Category("Simple option tests")]
+        public void BubbleSortByRows_AscSortingByMin_ReturnsSortedArray()
+        {
+            int[][] arr = (int[][])JaggedArray.Clone();
+            int[][] expectedArray = new int[][]
+            {
+                new int[] {0,2,4,6},
+                new int[] {1,3,5,7,9},
+                new int[] {11,22},
+            };
+
+            IntArrSorting.BubbleSortByRows(arr, new AscComparatorByMinMember());
+
+            Assert.AreEqual(arr, expectedArray);
+        }
+
+        [Test]
+        [Category("Simple option tests")]
+        public void BubbleSortByRows_DescSortingByMin_ReturnsSortedArray()
+        {
+            int[][] arr = (int[][])JaggedArray.Clone();
+            int[][] expectedArray = new int[][]
+            {
+                new int[] {11,22},
+                new int[] {1,3,5,7,9},
+                new int[] {0,2,4,6}
+            };
+
+            IntArrSorting.BubbleSortByRows(arr, new DescComparatorByMinMember());
+
+            Assert.AreEqual(arr, expectedArray);
+        }
+
+        #endregion
+
+        #region  Sorting by max member
+
+        [Test]
+        [Category("Simple option tests")]
+        public void BubbleSortByRows_AscSortingByMaxMember_ReturnsSortedArray()
+        {
+            int[][] arr = (int[][])JaggedArray.Clone();
+            int[][] expectedArray = new int[][]
+            {
+                new int[] {0,2,4,6},
+                new int[] {1,3,5,7,9},
+                new int[] {11,22}
+            };
+
+            IntArrSorting.BubbleSortByRows(arr, new AscComparatorByMaxMember());
 
             Assert.AreEqual(arr, expectedArray);
         }
@@ -56,41 +137,28 @@ namespace Logic.Tests
                 new int[] {0,2,4,6},
             };
 
-            IntArrSorting.BubbleSortByRows(arr, new ComparatorByMaxMember(), SortingOrder.Desc);
+            IntArrSorting.BubbleSortByRows(arr, new DescComparatorByMaxMember());
 
             Assert.AreEqual(arr, expectedArray);
         }
 
+        #endregion
+
+        #region Sorting by length
+
         [Test]
         [Category("Simple option tests")]
-        public void BubbleSortByRows_AscSortingByMin_ReturnsSortedArray()
+        public void BubbleSortByRows_AscSortingByLength_ReturnsSortedArray()
         {
             int[][] arr = (int[][])JaggedArray.Clone();
             int[][] expectedArray = new int[][]
             {
-                new int[] {0,2,4,6},
-                new int[] {1,3,5,7,9},
                 new int[] {11,22},
+                new int[] {0,2,4,6},
+                new int[] {1,3,5,7,9}
             };
 
-            IntArrSorting.BubbleSortByRows(arr, new ComparatorByMinMember());
-
-            Assert.AreEqual(arr, expectedArray);
-        }
-
-        [Test]
-        [Category("Simple option tests")]
-        public void BubbleSortByRows_AscSortingByFirstMember_ReturnsSortedArray()
-        {
-            int[][] arr = (int[][])JaggedArray.Clone();
-            int[][] expectedArray = new int[][]
-            {
-                new int[] {0,2,4,6},
-                new int[] {1,3,5,7,9},
-                new int[] {11,22},
-            };
-
-            IntArrSorting.BubbleSortByRows(arr, new ComparatorByFirstMember());
+            IntArrSorting.BubbleSortByRows(arr, new AscComparatorByLength());
 
             Assert.AreEqual(arr, expectedArray);
         }
@@ -107,10 +175,50 @@ namespace Logic.Tests
                 new int[] {11,22}
             };
 
-            IntArrSorting.BubbleSortByRows(arr, new ComparatorByLength(),SortingOrder.Desc);
+            IntArrSorting.BubbleSortByRows(arr, new DescComparatorByLength());
 
             Assert.AreEqual(arr, expectedArray);
         }
+
+        #endregion
+
+        #region  Sorting by the first member
+
+        [Test]
+        [Category("Simple option tests")]
+        public void BubbleSortByRows_AscSortingByFirstMember_ReturnsSortedArray()
+        {
+            int[][] arr = (int[][])JaggedArray.Clone();
+            int[][] expectedArray = new int[][]
+            {
+                new int[] {0,2,4,6},
+                new int[] {1,3,5,7,9},
+                new int[] {11,22},
+            };
+
+            IntArrSorting.BubbleSortByRows(arr, new AscComparatorByFirstMember());
+
+            Assert.AreEqual(arr, expectedArray);
+        }
+
+        [Test]
+        [Category("Simple option tests")]
+        public void BubbleSortByRows_DescSortingByFirstMember_ReturnsSortedArray()
+        {
+            int[][] arr = (int[][])JaggedArray.Clone();
+            int[][] expectedArray = new int[][]
+            {
+                new int[] {11,22},
+                new int[] {1,3,5,7,9},
+                new int[] {0,2,4,6} 
+            };
+
+            IntArrSorting.BubbleSortByRows(arr, new DescComparatorByFirstMember());
+
+            Assert.AreEqual(arr, expectedArray);
+        }
+
+        #endregion
 
 
         #endregion
@@ -130,7 +238,7 @@ namespace Logic.Tests
             };
 
             Assert.Catch<ArgumentException>(() =>
-            IntArrSorting.BubbleSortByRows(arr, new ComparatorByMinMember()));
+            IntArrSorting.BubbleSortByRows(arr, new AscComparatorByMinMember()));
         }
 
         [Test]
@@ -141,11 +249,13 @@ namespace Logic.Tests
             arr[0] = new int[] { 1, 2 };
 
             Assert.Catch<ArgumentNullException>(() =>
-           IntArrSorting.BubbleSortByRows(arr, new ComparatorByMinMember()));
+           IntArrSorting.BubbleSortByRows(arr, new AscComparatorByMinMember()));
         }
 
         #endregion
 
+
+        #endregion
     }
 
 }
