@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comparators.cs" />
+    <Compile Include="ComparatorsByFirstMember.cs" />
+    <Compile Include="ComparatorsByLength.cs" />
+    <Compile Include="ComparatorsByMaxMember.cs" />
+    <Compile Include="ComparatorsByMinMember.cs" />
+    <Compile Include="ComparatorsBySum.cs" />
     <Compile Include="IntArrSortingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
