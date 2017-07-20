@@ -48,7 +48,8 @@
     <Compile Include="ComparatorsByMaxMember.cs" />
     <Compile Include="ComparatorsByMinMember.cs" />
     <Compile Include="ComparatorsBySum.cs" />
-    <Compile Include="IntArrSortingTests.cs" />
+    <Compile Include="IntArrSortingInterfaceInDelegateTests.cs" />
+    <Compile Include="IntArrSortingDelegateInInterfaceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

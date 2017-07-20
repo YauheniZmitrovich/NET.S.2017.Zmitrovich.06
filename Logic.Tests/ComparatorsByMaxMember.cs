@@ -10,38 +10,8 @@ namespace Logic.Tests
     /// Comparator of two int[] arrays by the maximum elements.
     /// Implements <see cref="IComparer"/> interface.
     /// </summary>
-    public class AscComparatorByMaxMember : IComparer
+    public class AscComparatorByMaxMember : IComparer<int[]>
     {
-        /// <summary>
-        /// Determines restrictions on input array,
-        /// null references and empty rows management.
-        /// </summary>
-        /// <param name="arr"> Input jagged array. </param>
-        /// <exception cref="ArgumentNullException">
-        /// Throws exceptions when <see cref="arr"/> or 
-        /// arr[i] is null reference.
-        /// </exception>
-        /// /// <exception cref="ArgumentException">
-        /// Throws exceptions when length of <see cref="arr"/> or 
-        /// arr[i] is equals to zero.
-        /// </exception>
-        public void CheckInputArray(int[][] arr)
-        {
-            if (arr == null)
-                throw new ArgumentNullException();
-
-            if (arr.Length == 0)
-                throw new ArgumentException();
-
-            foreach (int[] internArr in arr)
-            {
-                if (internArr == null)
-                    throw new ArgumentNullException();
-                if (internArr.Length == 0)
-                    throw new ArgumentException();
-            }
-        }
-
         /// <summary>
         ///  Compares two int[] arrays by the minimum elements in ascending
         ///  and returns an integer that indicates
@@ -64,38 +34,8 @@ namespace Logic.Tests
     /// Comparator of two int[] arrays by the maximum elements.
     /// Implements <see cref="IComparer"/> interface.
     /// </summary>
-    public class DescComparatorByMaxMember : IComparer
+    public class DescComparatorByMaxMember : IComparer<int[]>
     {
-        /// <summary>
-        /// Determines restrictions on input array,
-        /// null references and empty rows management.
-        /// </summary>
-        /// <param name="arr"> Input jagged array. </param>
-        /// <exception cref="ArgumentNullException">
-        /// Throws exceptions when <see cref="arr"/> or 
-        /// arr[i] is null reference.
-        /// </exception>
-        /// /// <exception cref="ArgumentException">
-        /// Throws exceptions when length of <see cref="arr"/> or 
-        /// arr[i] is equals to zero.
-        /// </exception>
-        public void CheckInputArray(int[][] arr)
-        {
-            if (arr == null)
-                throw new ArgumentNullException();
-
-            if (arr.Length == 0)
-                throw new ArgumentException();
-
-            foreach (int[] internArr in arr)
-            {
-                if (internArr == null)
-                    throw new ArgumentNullException();
-                if (internArr.Length == 0)
-                    throw new ArgumentException();
-            }
-        }
-
         /// <summary>
         ///  Compares two int[] arrays by the minimum elements in descending
         ///  and returns an integer that indicates

@@ -10,37 +10,37 @@ namespace Logic.Tests
     /// Comparator of two int[] arrays by the first the elements.
     /// Implements <see cref="IComparer"/> interface.
     /// </summary>
-    public class AscComparatorByFirstMember : IComparer
+    public class AscComparatorByFirstMember : IComparer<int[]>
     {
-        /// <summary>
-        /// Determines restrictions on input array,
-        /// null references and empty rows management.
-        /// </summary>
-        /// <param name="arr"> Input jagged array. </param>
-        /// <exception cref="ArgumentNullException">
-        /// Throws exceptions when <see cref="arr"/> or 
-        /// arr[i] is null reference.
-        /// </exception>
-        /// /// <exception cref="ArgumentException">
-        /// Throws exceptions when length of <see cref="arr"/> or 
-        /// arr[i] is equals to zero.
-        /// </exception>
-        public void CheckInputArray(int[][] arr)
-        {
-            if (arr == null)
-                throw new ArgumentNullException();
+        ///// <summary>
+        ///// Determines restrictions on input array,
+        ///// null references and empty rows management.
+        ///// </summary>
+        ///// <param name="arr"> Input jagged array. </param>
+        ///// <exception cref="ArgumentNullException">
+        ///// Throws exceptions when <see cref="arr"/> or 
+        ///// arr[i] is null reference.
+        ///// </exception>
+        ///// /// <exception cref="ArgumentException">
+        ///// Throws exceptions when length of <see cref="arr"/> or 
+        ///// arr[i] is equals to zero.
+        ///// </exception>
+        //public void CheckInputArray(int[][] arr)
+        //{
+        //    if (arr == null)
+        //        throw new ArgumentNullException();
 
-            if (arr.Length == 0)
-                throw new ArgumentException();
+        //    if (arr.Length == 0)
+        //        throw new ArgumentException();
 
-            foreach (int[] internArr in arr)
-            {
-                if (internArr == null)
-                    throw new ArgumentNullException();
-                if (internArr.Length == 0)
-                    throw new ArgumentException();
-            }
-        }
+        //    foreach (int[] internArr in arr)
+        //    {
+        //        if (internArr == null)
+        //            throw new ArgumentNullException();
+        //        if (internArr.Length == 0)
+        //            throw new ArgumentException();
+        //    }
+        //}
 
         /// <summary>
         ///  Compares two int[] arrays by the first of the elements in ascending order
@@ -64,37 +64,37 @@ namespace Logic.Tests
     /// Comparator of two int[] arrays by the first the elements.
     /// Implements <see cref="IComparer"/> interface.
     /// </summary>
-    public class DescComparatorByFirstMember : IComparer
+    public class DescComparatorByFirstMember : IComparer<int[]>
     {
-        /// <summary>
-        /// Determines restrictions on input array,
-        /// null references and empty rows management.
-        /// </summary>
-        /// <param name="arr"> Input jagged array. </param>
-        /// <exception cref="ArgumentNullException">
-        /// Throws exceptions when <see cref="arr"/> or 
-        /// arr[i] is null reference.
-        /// </exception>
-        /// /// <exception cref="ArgumentException">
-        /// Throws exceptions when length of <see cref="arr"/> or 
-        /// arr[i] is equals to zero.
-        /// </exception>
-        public void CheckInputArray(int[][] arr)
-        {
-            if (arr == null)
-                throw new ArgumentNullException();
+        ///// <summary>
+        ///// Determines restrictions on input array,
+        ///// null references and empty rows management.
+        ///// </summary>
+        ///// <param name="arr"> Input jagged array. </param>
+        ///// <exception cref="ArgumentNullException">
+        ///// Throws exceptions when <see cref="arr"/> or 
+        ///// arr[i] is null reference.
+        ///// </exception>
+        ///// /// <exception cref="ArgumentException">
+        ///// Throws exceptions when length of <see cref="arr"/> or 
+        ///// arr[i] is equals to zero.
+        ///// </exception>
+        //public void CheckInputArray(int[][] arr)
+        //{
+        //    if (arr == null)
+        //        throw new ArgumentNullException();
 
-            if (arr.Length == 0)
-                throw new ArgumentException();
+        //    if (arr.Length == 0)
+        //        throw new ArgumentException();
 
-            foreach (int[] internArr in arr)
-            {
-                if (internArr == null)
-                    throw new ArgumentNullException();
-                if (internArr.Length == 0)
-                    throw new ArgumentException();
-            }
-        }
+        //    foreach (int[] internArr in arr)
+        //    {
+        //        if (internArr == null)
+        //            throw new ArgumentNullException();
+        //        if (internArr.Length == 0)
+        //            throw new ArgumentException();
+        //    }
+        //}
 
         /// <summary>
         ///  Compares two int[] arrays by the first of the elements in descending order

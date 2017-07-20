@@ -1,5 +1,5 @@
 ﻿using System;
-using static Logic.IntArrSorting;
+using Logic;
 namespace Logic
 {
     /// <summary>
