@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Logic
 {
+    /// <summary>
+    /// Sorts int arrays.
+    /// </summary>
     public static class IntArrSortingInterfaceInDelegate
     {
         #region Sorting algorithms
@@ -16,6 +19,8 @@ namespace Logic
         /// </param>
         public static void BubbleSortByRows(int[][] arr, IComparer<int[]> comparer)
         {
+            CheckInputArray(arr);
+
             for (int i = 0; i < arr.Length; i++)
             {
                 for (int j = 0; j < arr.Length - i - 1; j++)
@@ -49,17 +54,14 @@ namespace Logic
         #region Private fields
 
         /// <summary>
-        /// Determines restrictions on input array,
-        /// null references and empty rows management.
+        /// Determines restrictions on input array.
         /// </summary>
         /// <param name="arr"> Input jagged array. </param>
         /// <exception cref="ArgumentNullException">
-        /// Throws exceptions when <see cref="arr"/> or 
-        /// arr[i] is null reference.
+        /// Throws exceptions when <see cref="arr"/> is null reference.
         /// </exception>
         /// /// <exception cref="ArgumentException">
-        /// Throws exceptions when length of <see cref="arr"/> or 
-        /// arr[i] is equals to zero.
+        /// Throws exceptions when length of <see cref="arr"/> is equals to zero.
         /// </exception>
         public static void CheckInputArray(int[][] arr)
         {
@@ -68,14 +70,6 @@ namespace Logic
 
             if (arr.Length == 0)
                 throw new ArgumentException();
-
-            foreach (int[] internArr in arr)
-            {
-                if (internArr == null)
-                    throw new ArgumentNullException();
-                if (internArr.Length == 0)
-                    throw new ArgumentException();
-            }
         }
 
         #endregion

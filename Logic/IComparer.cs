@@ -8,13 +8,6 @@ namespace Logic
     public interface IComparer
     {
         /// <summary>
-        /// Determines restrictions on input array,
-        /// null references and empty rows management.
-        /// </summary>
-        /// <param name="arr"> Input jagged array. </param>
-        void CheckInputArray(int[][] arr);
-
-        /// <summary>
         /// Compares two int[] arrays and returns a value indicating 
         /// whether one is less than, equal to, or greater than the other.
         /// </summary>

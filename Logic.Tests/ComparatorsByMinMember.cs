@@ -13,6 +13,26 @@ namespace Logic.Tests
     public class AscComparatorByMinMember : IComparer<int[]>
     {
         /// <summary>
+        /// Determines restrictions on input array,
+        /// null references and empty rows management.
+        /// </summary>
+        /// <param name="arr1"> The first input array. </param>
+        /// <param name="arr2"> The second input array. </param>
+        /// <exception cref="ArgumentNullException">
+        /// Throws exceptions when <see cref="arr1"/> or <see cref="arr2"/> is null reference.
+        /// </exception>
+        /// /// <exception cref="ArgumentException">
+        /// Throws exceptions when length of <see cref="arr1"/> or <see cref="arr2"/> is equals to zero.
+        /// </exception>
+        public void CheckInputArray(int[] arr1, int[] arr2)
+        {
+            if (arr1 == null || arr2 == null)
+                throw new ArgumentNullException();
+            if (arr1.Length == 0 || arr2.Length == 0)
+                throw new ArgumentException();
+        }
+
+        /// <summary>
         ///  Compares two int[] arrays by the minimum elements in ascending order
         ///  and returns an integer that indicates
         ///  their relative position in the sort order.
@@ -26,6 +46,7 @@ namespace Logic.Tests
         /// </returns>
         public int Compare(int[] arr1, int[] arr2)
         {
+            CheckInputArray(arr1,arr2);
             return arr1.Min() - arr2.Min();
         }
     }
@@ -36,6 +57,26 @@ namespace Logic.Tests
     /// </summary>
     public class DescComparatorByMinMember : IComparer<int[]>
     {
+        /// <summary>
+        /// Determines restrictions on input array,
+        /// null references and empty rows management.
+        /// </summary>
+        /// <param name="arr1"> The first input array. </param>
+        /// <param name="arr2"> The second input array. </param>
+        /// <exception cref="ArgumentNullException">
+        /// Throws exceptions when <see cref="arr1"/> or <see cref="arr2"/> is null reference.
+        /// </exception>
+        /// /// <exception cref="ArgumentException">
+        /// Throws exceptions when length of <see cref="arr1"/> or <see cref="arr2"/> is equals to zero.
+        /// </exception>
+        public void CheckInputArray(int[] arr1, int[] arr2)
+        {
+            if (arr1 == null || arr2 == null)
+                throw new ArgumentNullException();
+            if (arr1.Length == 0 || arr2.Length == 0)
+                throw new ArgumentException();
+        }
+
         /// <summary>
         ///  Compares two int[] arrays by the minimum elements in descending order
         ///  and returns an integer that indicates
@@ -50,6 +91,7 @@ namespace Logic.Tests
         /// </returns>
         public int Compare(int[] arr1, int[] arr2)
         {
+            CheckInputArray(arr1,arr2);
             return arr2.Min() - arr1.Min();
         }
     }
